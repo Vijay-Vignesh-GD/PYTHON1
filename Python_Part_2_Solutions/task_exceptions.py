@@ -22,23 +22,18 @@ class CustomError(Exception):
         super().__init__(message)
 def division(x: int, y: int) -> typing.Union[None, int]:
  
-    try:
-        if y==0:
-            print("Division by 0")
-            return None
-    
-        elif y==1:
-            raise CustomError("Deletion on 1 get the same result")
-            
-        else: 
-            result = x//y
-            print(result)
-
-    # except CustomError as e:
-    #     print(e)
-        
-    finally:
+    if y == 0:
+        print("Division by 0")
         print("Division finished")
+        return None
+    elif y == 1:
+        print("Division finished")
+        raise CustomError("Deletion on 1 get the same result")
+    else:
+        result = x // y
+        print(result)
+        print("Division finished")
+        return result
         
 if __name__ == '__main__':
     try :
